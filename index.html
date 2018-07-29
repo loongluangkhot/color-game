@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Color Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>THE GREAT<br>
+      <span class="rgb-target">RGB(<span class="rgb-value" id="r-value">150</span>, <span class="rgb-value" id="g-value">150</span>, <span class="rgb-value" id="b-value">150</span>)</span><br>
+      GUESSING GAME
+    </h1>
+  </header>
+  <div class="nav-bar">
+      <div class="menu">
+          <span class="left-menu">
+            <a href="#" id="menu-new-colours">NEW COLOURS</a>
+          </span>
+          <span class="text-display"></span>
+          <span class="right-menu">
+              <a href="#" class="selected" id="menu-easy">EASY</a>
+              <a href="#" id="menu-hard">HARD</a>
+          </span>
+      </div>
+  </div>
+  <div class="grid">
+    <div class="cell easy" id="c1"></div>
+    <div class="cell easy" id="c2"></div>
+    <div class="cell easy" id="c3"></div>
+    <div class="cell hard" id="c4"></div>
+    <div class="cell hard" id="c5"></div>
+    <div class="cell hard" id="c6"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

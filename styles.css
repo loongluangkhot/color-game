@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Sanchez');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #2E2C2F;
+  font-family: Comfortaa, sans-serif;
+}
+
+h1 {
+  font-family: "Sanchez", sans-serif;
+  color: white;
+  background: #729B79;
+  height: 200px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.rgb-target {
+  font-size: 1.5em;
+}
+
+.nav-bar {
+  background: white;
+  height: 30px;
+}
+
+.menu {
+  height: 30px;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.left-menu {
+  float: left;
+}
+
+.right-menu {
+  float: right;
+}
+
+.menu > span {
+  height: 30px;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #729B79;
+  font-weight: bold;
+  height: 30px;
+  padding: 7px 15px;
+}
+
+a.selected, a:hover {
+  color: white;
+  background: #729B79;
+}
+
+div.menu {
+  text-align: center;
+}
+
+.text-display {
+  display: inline-block;
+  padding: 7px;
+}
+
+div.grid {
+  display: grid;
+  height: 300px;
+  width: 450px;
+  margin: 20px auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "c1 c2 c3",
+    "c4 c5 c6";
+  grid-gap: 20px;
+}
+
+div.cell {
+  background: #729B79;
+  /* background: #2E2C2F; */
+  border-radius: 20px;
+}
