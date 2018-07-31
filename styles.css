@@ -15,7 +15,7 @@ h1 {
   font-family: "Sanchez", sans-serif;
   color: white;
   background: #729B79;
-  height: 200px;
+  /* height: 200px; */
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: center;
@@ -32,7 +32,8 @@ h1 {
 
 .menu {
   height: 30px;
-  width: 500px;
+  width: 95%;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -72,20 +73,19 @@ div.menu {
 }
 
 div.grid {
+  width: 95%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding-top: 20px;
   display: grid;
-  height: 300px;
-  width: 450px;
-  margin: 20px auto;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-    "c1 c2 c3",
-    "c4 c5 c6";
-  grid-gap: 20px;
 }
 
 div.cell {
+  width: 90%;
+  padding-bottom: 90%;
+  margin: auto;
   background: #729B79;
-  /* background: #2E2C2F; */
   border-radius: 20px;
 }
