@@ -85,7 +85,7 @@ div.grid {
 div.cell {
   width: 90%;
   padding-bottom: 90%;
-  margin: auto;
+  margin: 5% auto;
   background: #729B79;
   border-radius: 20px;
 }
