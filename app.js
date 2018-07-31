@@ -1,5 +1,5 @@
 var h1 = document.querySelector("h1")
-var rgbValue_display = document.querySelectorAll(".rgb-value")
+var rgbTarget_display = document.querySelector("#rgb-target")
 
 var newColours_button = document.querySelector("#menu-new-colours")
 var easy_button = document.querySelector("#menu-easy")
@@ -8,51 +8,54 @@ var textDisplay = document.querySelector(".text-display")
 
 var cells = document.querySelectorAll(".cell")
 
-var gameMode = "easy"
+var gameMode = "hard"
 var rgbValue_target = []
 var rgbValues_array = []
 
 function start_game() {
-  console.log("start game")
   reset_game()
-  rgbValues_array = sixRandomColours()
+  rgbValues_array = generateRandomColours(6)
   if (gameMode === "easy") {
-    console.log(gameMode)
+    easy_button.classList.add("selected")
+    hard_button.classList.remove("selected")
     rgbValue_target = rgbValues_array[randomInt(3)] // return index 0, 1, or 2
     for (var i = 0; i < 6; i++) {
       if (i < 3) {
         console.log("setting colours")
-        cells[i].style.background = `rgb(${rgbValues_array[i][0]},${rgbValues_array[i][1]},${rgbValues_array[i][2]})`
+        cells[i].style.backgroundColor = rgbValues_array[i]
       } else {
-        cells[i].style.background = "#2E2C2F" // body's backgroundColor
+        cells[i].style.backgroundColor = "#2E2C2F" // body's backgroundColor
       }
     }
   } else {
-    console.log(gameMode)
+    easy_button.classList.remove("selected")
+    hard_button.classList.add("selected")
     rgbValue_target = rgbValues_array[randomInt(6)] // return index 0, 1, or 2
     for (var i = 0; i < 6; i++) {
-      cells[i].style.background = `rgb(${rgbValues_array[i][0]},${rgbValues_array[i][1]},${rgbValues_array[i][2]})`
+      cells[i].style.backgroundColor = rgbValues_array[i]
     }
   }
-  for (var i = 0; i < 3; i++) {
-    rgbValue_display[i].textContent = rgbValue_target[i]
-  }
+  rgbTarget_display.textContent = rgbValue_target
 }
 
 function randomInt(max_exclusive) {
   return Math.floor(Math.random() * Math.floor(max_exclusive))
 }
 
-function sixRandomColours() {
-  let rgbValues_array = []
-  for (var i = 0; i < 6; i++) {
-    let rgbValue = []
-    for (var j = 0; j < 3; j++) {
-      rgbValue.push(randomInt(256))
-    }
-    rgbValues_array.push(rgbValue)
+function generateRandomColours(num) {
+  var rgbValues_array = []
+  for (var i = 0; i < num; i++) {
+    rgbValues_array.push(randomColour())
   }
   return rgbValues_array
+}
+
+function randomColour() {
+  var rgbValue = []
+  for (var i = 0; i < 3; i++) {
+    rgbValue.push(randomInt(256))
+  }
+  return `rgb(${rgbValue[0]}, ${rgbValue[1]}, ${rgbValue[2]})`
 }
 
 function addEventHandlers() {
@@ -63,16 +66,12 @@ function addEventHandlers() {
   // event handler for game mode
   easy_button.addEventListener("click", function() {
     if (gameMode !== "easy") {
-      easy_button.classList.add("selected")
-      hard_button.classList.remove("selected")
       gameMode = "easy"
       start_game()
     }
   })
   hard_button.addEventListener("click", function() {
     if (gameMode !== "hard") {
-      easy_button.classList.remove("selected")
-      hard_button.classList.add("selected")
       gameMode = "hard"
       start_game()
     }
@@ -80,32 +79,27 @@ function addEventHandlers() {
   // event handler for each cell
   for (var i = 0; i < cells.length; i++) {
     cells[i].addEventListener("click", function() {
-      console.log("clicked!")
-      if (compareColours(this.style.background)) {
+      if (this.style.backgroundColor === rgbValue_target) {
         // win visuals
         textDisplay.textContent = "Correct!"
-        h1.style.background = `rgb(${rgbValue_target[0]},${rgbValue_target[1]},${rgbValue_target[2]})`
+        newColours_button.textContent = "NEW GAME?"
+        h1.style.backgroundColor = rgbValue_target
         for (var j = 0; j < cells.length; j++) {
-          cells[j].style.background = `rgb(${rgbValue_target[0]},${rgbValue_target[1]},${rgbValue_target[2]})`
+          cells[j].style.backgroundColor = rgbValue_target
         }
       } else {
         // lose visuals
         textDisplay.textContent = "Try again!"
-        this.style.background = "#2E2C2F"
+        this.style.backgroundColor = "#2E2C2F"
       }
     })
   }
 }
 
-function compareColours(colourStr) {
-  console.log(colourStr)
-  console.log(`rgb(${rgbValue_target[0]}, ${rgbValue_target[1]}, ${rgbValue_target[2]})`)
-  return colourStr === `rgb(${rgbValue_target[0]}, ${rgbValue_target[1]}, ${rgbValue_target[2]})`
-}
-
 function reset_game() {
   textDisplay.textContent = ""
-  h1.style.background = "#729B79";
+  newColours_button.textContent = "NEW COLOURS"
+  h1.style.backgroundColor = "#729B79";
 }
-start_game()
 addEventHandlers()
+start_game()

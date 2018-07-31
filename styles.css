@@ -15,61 +15,48 @@ h1 {
   font-family: "Sanchez", sans-serif;
   color: white;
   background: #729B79;
-  /* height: 200px; */
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: center;
+  transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
 }
 
-.rgb-target {
+#rgb-target {
   font-size: 1.5em;
+  text-transform: uppercase;
 }
 
 .nav-bar {
   background: white;
   height: 30px;
+  text-align: center;
 }
 
-.menu {
-  height: 30px;
-  width: 95%;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.left-menu {
-  float: left;
-}
-
-.right-menu {
-  float: right;
-}
-
-.menu > span {
-  height: 30px;
-}
-
-a {
-  display: inline-block;
+button {
   text-decoration: none;
+  background: none;
+  border: none;
+  outline: none;
   color: #729B79;
   font-weight: bold;
-  height: 30px;
-  padding: 7px 15px;
+  height: 100%;
+  margin: 0;
+  padding: 0 6px;
 }
 
-a.selected, a:hover {
+button.selected, button:hover {
   color: white;
   background: #729B79;
-}
-
-div.menu {
-  text-align: center;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
 }
 
 .text-display {
   display: inline-block;
-  padding: 7px;
+  width: 120px;
 }
 
 div.grid {
@@ -88,4 +75,7 @@ div.cell {
   margin: 5% auto;
   background: #729B79;
   border-radius: 20px;
+  transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
 }

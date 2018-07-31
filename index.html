@@ -10,21 +10,15 @@
 <body>
   <header>
     <h1>THE GREAT<br>
-      <span class="rgb-target">RGB(<span class="rgb-value" id="r-value">150</span>, <span class="rgb-value" id="g-value">150</span>, <span class="rgb-value" id="b-value">150</span>)</span><br>
+      <span id="rgb-target">RGB</span><br>
       GUESSING GAME
     </h1>
   </header>
   <div class="nav-bar">
-      <div class="menu">
-          <span class="left-menu">
-            <a href="#" id="menu-new-colours">NEW COLOURS</a>
-          </span>
-          <span class="text-display"></span>
-          <span class="right-menu">
-              <a href="#" class="selected" id="menu-easy">EASY</a>
-              <a href="#" id="menu-hard">HARD</a>
-          </span>
-      </div>
+    <button id="menu-new-colours">NEW COLOURS</button>
+    <span class="text-display">Try again!</span>
+    <button id="menu-easy">EASY</button>
+    <button id="menu-hard">HARD</button>
   </div>
   <div class="grid">
     <div class="cell easy" id="c1"></div>
